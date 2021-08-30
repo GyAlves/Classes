@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The world of classes</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        class Person {
+            constructor(_name, _age) {
+                this.name = _name
+                this.age = _age
+            }
+
+            introduce() {
+                return `Hello people, my name is ${this.name}, i'm ${this.age} years old and i am a ${this.profession}`
+            }
+
+            makeSound() {
+                return `Hello..`
+            }
+
+        }
+
+        class Programmer extends Person {
+            constructor(_name, _age, _yearsOfExperience, _skills) {
+                super(_name, _age)
+                this.yearsOfExperience = _yearsOfExperience
+                this.skills = _skills
+            }
+
+            static compareExperience(first_programmer, second_programmer) {
+                return first_programmer.yearsOfExperience > second_programmer.yearsOfExperience ? `${first_programmer.name} has more experience than ${second_programmer.name}` : `${second_programmer.name} has more experience than you`
+            }
+
+            code() {
+                console.log(`The ${this.name} programmer is coding a new masterpiece`)
+            }
+
+            makeSound() {
+                console.log("Need coffee.....")
+            }
+
+        }
+
+        const programmers = [
+            new Programmer("Chloe Moretz ", 21, 2, ["Javascript", "NodeJs"]),
+            new Programmer("John Doe", 22, 5, ["Python", "Machine Learning"]),
+        ]
+
+        function developSoftware(programmers) {
+            for (let programmer of programmers) {
+                programmer.makeSound()
+            }
+        }
+
+        developSoftware(programmers)
+
+        const me = new Person("Clara Smith", 21)
+        console.log(me.makeSound())
+
+    </script>
+
+</body>
+
+</html>
